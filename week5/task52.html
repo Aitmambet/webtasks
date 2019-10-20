@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="css52.css">
+        <title>
+            TASK 2
+        </title>
+    </head>
+    
+    <body>
+        <header><div class="a">
+            <input type="checkbox"><p class="c">TASK 2</p>
+            </div>
+        </header>
+        
+        <main>
+            <div class="b" id="aa">
+                <p class="d">Your task is make image using JS, create image adder tools and changing frame properties</p>
+                <button class="e" onclick="first()">X</button>
+            </div>
+            <div class="g">
+                <p class="too1" id="tool1" onclick="second()">Tools</p>
+                <p class="too2" id="tool2" onclick="third()">Frame Properties</p>
+            </div>
+            <div class="f" id="tools">
+                <div class="h">
+                    <p>Position X</p>
+                    <input type="number" id="px">
+                </div>
+                
+                <div class="h">
+                    <p>Position Y</p>
+                    <input type="number" id="py">
+                </div>
+                
+                <div class="h">
+                    <p>Position Type</p>
+                    <input type="text" id="pt" placeholder="Absolute|Relative|Fixed">
+                </div>
+                
+                <div class="h">
+                    <p>Object</p>
+                    <select id="obj">
+                        <option>Tree</option>
+                        <option>House</option>
+                        <option>Grass</option>
+                    </select>
+                </div>
+            
+                <div class="i">
+                    <p>Here you can add own css properties as you wish</p>
+                    <input id="css" type="text">
+                </div>
+                <button class="bt1" onclick="fourth()">Add object to the frame</button>
+            </div>
+            
+            <div class="f" id="properties">
+                <div class="h">
+                    <p>Background</p>
+                    <input type="text" id="back">
+                </div>
+                
+                <div class="h">
+                    <p>Border Radius</p>
+                    <input type="text" id="br">
+                </div>
+                
+                <div class="h">
+                    <p>Width</p>
+                    <input type="number" id="ww">
+                </div>
+                
+                <div class="h">
+                    <p>Height</p>
+                    <input type="number" id="hh">
+                </div>
+                
+            
+                <div class="i">
+                    <p>Here you can add own css properties as you wish</p>
+                    <input id="css" type="text">
+                </div>
+                <button class="bt1" onclick="fifth()">Save Frame settings</button>
+            </div>
+            <div class="j">
+            </div>
+            <div class="k" id="frame">
+                <p>THIS IS FRAME</p>
+            </div>
+        </main>
+        <script src="js52.js" defer></script>
+    </body>
+</html>
