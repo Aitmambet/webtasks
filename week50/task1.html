@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      
+    <link rel="stylesheet" href="style1.css">
+     <style>
+         #matrix{
+  display:flex;
+  width:300px;
+  flex-wrap:wrap;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+#matrix input{
+  width:80px;
+  padding:5px;
+  font-size:24px;
+}
+#result{
+  font-size:24px;
+  color:red;    
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    width: 20px;
+    text-align: center;
+}
+#determinant{
+  font-size:24px;
+  color:green;
+}
+         body{
+             background-color: antiquewhite;
+         }
+         #a{
+             width: 70%;
+             height: 70%;
+             background-color: white;
+             position: absolute;
+             top: 15%;
+             left: 5%;
+             border-radius: 15px;
+             display: inline-block;
+             
+         }
+         #b{
+             margin-left:50px;
+             float: left;
+         }
+         .aaaa{
+             color: darkgray;
+         }
+         #c{
+             float: right;
+         }
+      </style>
+  </head>
+
+  <body>
+      <div id="a">
+          <div id="b">
+      <h1 style="color: darkgrey; font-size: 10px;">Task-1</h1>
+      <p style="font-size: 20px;font-weight: 100; color: lightgrey; ">Calculate determinant of the given matrix:</p>
+      <div id="matrix">
+      <input type="text" value="A" id="s11"/>
+      <input type="text" value="B" id="s12"/>
+      <input type="text" value="C" id="s13"/>
+      <input type="text" value="D" id="s21"/>
+      <input type="text" value="E"  id="s22"/>
+      <input type="text" value="F" id="s23"/>
+      <input type="text" value="G" id="s31"/>
+      <input type="text" value="H"  id="s32"/>
+      <input type="text" value="I" id="s33"/>
+          <button id="determinant" onclick="myFunction()">Find determinant</button>
+    
+    </div>  
+    </div>
+        <div id="c">
+            <div id="result">0</div>
+            <p style="color: red; font-size: 25px;">NaN</p>
+            <p class="aaaa">|A| = A(EI − FH) − B(DI − FG) + C(DH − EG) = NaN</p>
+            <p class="aaaa">Defenition:</p><p class="aaaa">
+            <strong style="color: black;">Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            
+            </p>       
+          </div>
+          
+      </div>
+    <script>
+      function myFunction() {
+        "use strict";
+        var a = document.getElementById("s11").value;
+        var b = document.getElementById("s12").value;
+        var c = document.getElementById("s13").value;
+        var d = document.getElementById("s21").value;
+        var e = document.getElementById("s22").value;
+        var f = document.getElementById("s23").value;
+        var g = document.getElementById("s31").value;
+        var h = document.getElementById("s32").value;
+        var i = document.getElementById("s33").value;
+        var sum = a * (e * i - f * h) - b * (d * i - f * g) + c * (d * h - e * g);
+        document.getElementById("result").innerHTML = sum;
+      }
+      </script>
+  </body>
+
+</html>
