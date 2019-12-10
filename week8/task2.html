@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      #cards .card{
+        border:1px solid red;
+        display:flex;
+        width:300px;
+      }
+      #cards .card .title{
+        flex-grow: 1;
+      }
+      #cards .card .price{
+        font-weight: bold;
+        padding-right: 20px;
+      }
+      #loading{
+        display: none;
+      }
+      #cards{
+        width:300px;
+        height:200px;
+        border: 1px solid blue;
+      }
+    </style>
+
+  </head>
+
+  <body>
+  
+    <button id="loader">Load file</button>
+    <div id="cards">
+        <img width="300px" height="200px" id="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
+    </div>
+    <script defer>
+    "use strict";
+    let a = new Array();
+    let a2 = new Array();
+    document.getElementById('loader').addEventListener('click',up);
+    function up(){
+      if( document.getElementById('loader').innerHTML=="loaded"){
+        System.exit(100);
+      }
+      document.getElementById('loading').style.display='block';
+    var myInit = {method:'GET',headers:{'Content-Type':'application/json'},mode:'cors',cache:'default'
+      
+    };
+  
+    let myRequest = new Request("3.json",myInit);
+    fetch(myRequest).then(function(resp) {
+        /*document.getElementsByClassName("card").style.display = "none";
+        document.getElementById("loader").innerHTML = "Some error occured";*/
+        return resp.json();
+     })
+      .then(function(data){
+         document.getElementById('loading').style.display='none';
+         document.getElementById('loader').innerHTML="loaded";
+         for(var r=0;r<3;r++){
+            var d =document.createElement('div');
+            d.setAttribute("class","card");
+            a=data.price;
+            a2=data.model;
+            d.innerHTML="<p class='title'>"+data.model[r]+"</p>"+"<p class='price'>"+data.price[r] + "</p>";
+            document.getElementById('cards').appendChild(d);
+         }
+})
+    .catch(e =>{
+        document.getElementsByClassName("card").style.display = "none";
+        document.getElementById("loader").innerHTML = "Some error occured";
+    })
+    }
+
+    </script>
+  </body>
+
+</html>

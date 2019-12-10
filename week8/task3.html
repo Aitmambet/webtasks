@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      #cards .card{
+        border:1px solid red;
+        display:flex;
+        width:300px;
+      }
+      #cards .card .title{
+        flex-grow: 1;
+      }
+      #cards .card .price{
+        font-weight: bold;
+        padding-right: 20px;
+      }
+      #loading{
+        display: none;
+      }
+      #cards{
+        width:300px;
+        height:200px;
+        border: 1px solid blue;
+      }
+    </style>
+
+  </head>
+
+  <body>
+  
+    <button id="loader">Load</button>
+    <div>
+      <button id="sortByMaker">Sort by maker</button>
+      <button id="sortByPrice">Sort by price</button>
+    </div>
+    <div id="cards">
+      <img width="300px" height="200px" id="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
+    </div>
+
+
+<script defer>
+    "use strict";
+    let a = new Array();
+    let a2 = new Array();
+    document.getElementById('loader').addEventListener('click',up);
+    function up(){
+      if( document.getElementById('loader').innerHTML=="load"){
+        System.exit(0);
+      }
+      document.getElementById('loading').style.display='block';
+
+    let myRequest = new Request("3.json");
+    fetch(myRequest)
+      .then(function(resp) {
+        return resp.json();
+     })
+      .then(function(data){
+         document.getElementById('loading').style.display='none';
+         document.getElementById('loader').innerHTML="load file";
+         for(var r=0;r<3;r++){
+             var d =document.createElement('div');
+            d.setAttribute("class","card");
+            a=data.price;
+            a2=data.model;
+            d.innerHTML="<p class='title'>"+data.model[r]+"</p>"+"<p class='price'>"+data.price[r] + "</p>";
+            document.getElementById('cards').appendChild(d);};
+      })
+       document.getElementById('sortByPrice').addEventListener('click', bb);
+        function bb(){
+            document.getElementById('cards').innerHTML="";
+            for (var i = a.length-1; i>=0; i--) {
+            var d =document.createElement('div');
+            d.setAttribute("class","card");
+            d.innerHTML="<p class='title'>"+a2[i]+"</p>"+"<p class='price'>"+a[i] + "</p>";
+            document.getElementById('cards').appendChild(d);
+           }}
+        document.getElementById('sortByMaker').addEventListener('click', aa);
+        function aa(){
+            document.getElementById('cards').innerHTML="";
+            for (var i = a.length-1; i>=0; i--) {
+            var d =document.createElement('div');
+            d.setAttribute("class","card");
+            d.innerHTML="<p class='title'>"+a2[i]+"</p>"+"<p class='price'>"+a[i] + "</p>";
+            document.getElementById('cards').appendChild(d);  
+          }}}
+    </script>
+  </body>
+
+</html>
